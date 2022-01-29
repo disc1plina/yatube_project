@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Group, Post
 
-# Create your views here.
 
 def index(request):
     template = "posts/index.html"

@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import os, sys
+#import os, sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # Прописываем папку apps где будут храниться все папки программы - приложения
@@ -123,5 +123,4 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-#добавил эту строчку PyCharm ругался без неё
 DEFAULT_AUTO_FIELD='django.db.models.BigAutoField'
