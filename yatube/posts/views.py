@@ -1,6 +1,5 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Group, Post
-from django.db import models
 
 
 class Meta:
