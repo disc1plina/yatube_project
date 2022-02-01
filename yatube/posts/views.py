@@ -1,10 +1,17 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Group, Post
+from django.db import models
+
+
+class Meta:
+    model = Post
+    ordering = ['-pub_date']
 
 
 def index(request):
+    POSTS_PER_PAGE = 10
     template = "posts/index.html"
-    posts = Post.objects.order_by('-pub_date')[:10]
+    posts = Post.objects.all()[:POSTS_PER_PAGE]
     # text = 'Это главная страница проекта Yatube'
     context = {
         'posts': posts,
@@ -13,9 +20,10 @@ def index(request):
 
 
 def groups_posts(request, slug):
+    POSTS_PER_PAGE = 10
     template1 = 'posts/group_list.html'
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).order_by('-pub_date')[:10]
+    posts = group.posts.all()[:POSTS_PER_PAGE]
     # text = 'Здесь будет информация о группах проекта Yatube'
     context = {
         'group': group,
