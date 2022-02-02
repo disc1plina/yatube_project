@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Group, Post
 
+POSTS_PER_PAGE = 10
+
 
 class Meta:
     model = Post
@@ -8,7 +10,6 @@ class Meta:
 
 
 def index(request):
-    POSTS_PER_PAGE = 10
     template = "posts/index.html"
     posts = Post.objects.all()[:POSTS_PER_PAGE]
     # text = 'Это главная страница проекта Yatube'
@@ -19,7 +20,6 @@ def index(request):
 
 
 def groups_posts(request, slug):
-    POSTS_PER_PAGE = 10
     template1 = 'posts/group_list.html'
     group = get_object_or_404(Group, slug=slug)
     posts = group.posts.all()[:POSTS_PER_PAGE]
