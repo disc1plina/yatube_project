@@ -19,6 +19,8 @@ def index(request):
     return render(request, template, context)
 
 
+
+
 def groups_posts(request, slug):
     template1 = 'posts/group_list.html'
     group = get_object_or_404(Group, slug=slug)
